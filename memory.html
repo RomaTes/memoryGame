@@ -1,0 +1,88 @@
+ <!DOCTYPE html>
+ <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Memory Matching Game</title>
+    <link rel="stylesheet" href="memory.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  </head>
+  <body>
+    <div id="match-grid"></div>
+    <div id="controls">
+      <button id="start-button">Start</button>    
+      <button id="replay-button">Replay</button>
+      <button id="pause-button">Pause</button>
+      <p>
+        Timer:
+        <span id="timer-elem">20</div>
+      </p>
+      <div class="inputs">
+        <button id="generate-button">Generate Cards</button>
+        <input id="width-input" type="number" placeholder="width" value="800">
+        <input id="height-input" type="number" placeholder="height" value="600">
+        <label>
+            Rows
+            <input id="rows-input" type="number" placeholder="rows"  min="1" max="10" value="4">
+        </label>
+        <label>
+            Columns
+            <input id="columns-input" type="number" placeholder="columns"  min="1" max="10" value ="4">
+        </label>
+        <label>
+            Time Limit
+            <input id="time-limit" type="number" placeholder="columns"  min="10" max="60" value="20">
+        </label>
+        <label>Choose card color:
+          <select id="color-select" name="select">
+            <option value="#9b59b6" style="background-color:#9b59b6;">#9b59b6</option>
+            <option value="#1abc9c" style="background-color:#1abc9c;">#1abc9c</option>
+            <option value="#2ecc71" style="background-color:#2ecc71;">#2ecc71</option>
+            <option value="#3498db" style="background-color:#3498db;">#3498db</option>
+          </select>
+        </label>
+        <label>
+          Choose background-color color:
+          <select id="back-select" name="select">
+            <option value="#1abc9c" style="background-color:#1abc9c;">#1abc9c</option>
+            <option value="#9b59b6" style="background-color:#9b59b6;">#9b59b6</option>
+            <option value="#2ecc71" style="background-color:#2ecc71;">#2ecc71</option>
+            <option value="#3498db" style="background-color:#3498db;">#3498db</option>
+          </select>
+        </label>
+        <p>Notice: min-width of playground is 800px, min-height is 600px. Firs of all create cards grid.</p>
+      </div>
+    </div>
+    <script>
+        const startButton1 = document.getElementById("start-button");
+        startButton1
+            .addEventListener("click",  () => {
+                requestAnimationFrame( ()=> {
+                const card = document.querySelectorAll('.card');
+                for(let i = 0; i< card.length; i++) {
+                    const cardInner = card[i].querySelector('.card-inner');
+                    card[i].addEventListener('mouseenter', () => {
+                        anime({
+                            targets: card[i],
+                            rotate: [0, 5],
+                            easing: 'easeInOutQuad',
+                            duration: 300,
+                        });
+                    });
+
+                    card[i].addEventListener('mouseleave', () => {
+                        anime({
+                            targets: card[i],
+                            rotate: [5, 0],
+                            easing: 'easeInOutQuad',
+                            duration: 300,
+                        });
+
+                    });
+                }
+            });
+        })
+      </script>
+    <script src="memory.js"></script>
+  </body>
+</html>
+
