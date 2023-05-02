@@ -9,8 +9,8 @@
   <body>
     <div id="match-grid"></div>
     <div id="controls">
-      <button id="start-button">Start</button>    
-      <button id="replay-button">Replay</button>
+      <button id="start-button" disabled="true">Start</button>    
+      <button id="replay-button" disabled="true">Replay</button>
       <button id="pause-button">Pause</button>
       <p>
         Timer:
@@ -32,6 +32,7 @@
             Time Limit
             <input id="time-limit" type="number" placeholder="columns"  min="10" max="60" value="20">
         </label>
+        <!--It work's for my Chrome Версія 112.0.5615.138 according Can I Use it should work for all Chrome need more test-->
         <label>Choose card color:
           <select id="color-select" name="select">
             <option value="#9b59b6" style="background-color:#9b59b6;">#9b59b6</option>
@@ -82,7 +83,7 @@
             });
         })
       </script>
-    <script src="memory.js"></script>
+    <script type="module" src="memory.js"></script>
   </body>
 </html>
 
