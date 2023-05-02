@@ -27,6 +27,7 @@ container.addEventListener("click",containerClickHandker);
 pauseButton.addEventListener("click", pauseButtonHandler);
 replayButton.addEventListener("click", replayButtonHandler);
 startButton.addEventListener("click", startButtonHandler);
+generateButton.addEventListener("click",generateMathGrid);
 
 let matchGrid;
 
@@ -72,7 +73,7 @@ function startButtonHandler(){
     matchGrid.enableCardClick();
 }
 
-generateButton.addEventListener("click", ()=>{
+function generateMathGrid(){
     matchGrid?.stopTimer();
     matchGrid = null;
     matchGrid = new MatchGrid({
@@ -89,7 +90,7 @@ generateButton.addEventListener("click", ()=>{
         startButton: startButton
     });
     generationPresets();
-});
+}
 
 function createCards() {
     container.innerHTML = "";
